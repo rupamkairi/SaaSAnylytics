@@ -8,6 +8,8 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "@types/ws": "^8.5.4",
+    "drizzle-kit": "^0.18.1",
     "esbuild": "^0.14.54",
     "postcss": "^8.4.21",
     "solid-start-node": "^0.2.19",
@@ -15,11 +17,14 @@
     "vite": "^4.1.4"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^0.4.9",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.8.2",
+    "drizzle-orm": "^0.26.3",
     "solid-js": "^1.7.2",
     "solid-start": "^0.2.26",
-    "undici": "^5.15.1"
+    "undici": "^5.15.1",
+    "ws": "^8.13.0"
   },
   "engines": {
     "node": ">=16.8"
