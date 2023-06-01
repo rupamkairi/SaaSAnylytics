@@ -20,18 +20,17 @@
 
 import { HttpContext } from '@adonisjs/core/build/standalone'
 import Route from '@ioc:Adonis/Core/Route'
-import { allUsers } from '../providers/Drizzle/index'
+import db from '@ioc:Adonis/Drizzle'
+import schema from '@ioc:Adonis/Drizzle/Schema'
+// import { users } from 'providers/Drizzle/schema'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-// psql 'postgresql://rupamkairi:7Pr0mFMuABHQ@ep-sparkling-butterfly-551336.ap-southeast-1.aws.neon.tech/neondb'
-// psql 'postgresql://rupamkairi:7Pr0mFMuABHQ@ep-sparkling-butterfly-551336-pooler.ap-southeast-1.aws.neon.tech/neondb'
-
 Route.get('/db', async ({ response }: HttpContext) => {
-  const users = await allUsers()
-  return response.json(users)
+  const allUsers = await db.select().from(schema.users)
+  return response.json(allUsers)
 })
 
 Route.get('/soketi', async ({ response }: HttpContext) => {

@@ -19,7 +19,9 @@
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
-    "@adonisjs/session"
+    "@adonisjs/session",
+    "./providers/DrizzleProvider",
+    "./providers/DrizzleSchemaProvider"
   ],
   "aceProviders": [
     "@adonisjs/repl"
