@@ -20,6 +20,7 @@
     "@neondatabase/serverless": "^0.4.9",
     "@solidjs/meta": "^0.28.2",
     "@solidjs/router": "^0.8.2",
+    "ably": "^1.2.40",
     "drizzle-orm": "^0.26.3",
     "solid-js": "^1.7.2",
     "solid-start": "^0.2.26",
