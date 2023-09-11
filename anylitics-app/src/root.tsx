@@ -15,6 +15,7 @@ import {
 import "./root.css";
 
 export default function Root() {
+  console.log("Server Side Component");
   return (
     <Html lang="en">
       <Head>

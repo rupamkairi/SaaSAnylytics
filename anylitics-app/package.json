@@ -1,7 +1,7 @@
 {
   "name": "anylitics-app",
   "scripts": {
-    "solid:dev": "solid-start dev --host",
+    "solid:dev": "solid-start dev --port 3004 --host",
     "dev": "bun run solid:dev",
     "build": "solid-start build",
     "start": "solid-start start"
@@ -25,6 +25,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.276.0",
+    "pusher-js": "^8.3.0",
     "solid-js": "^1.7.11",
     "solid-start": "^0.3.5",
     "tailwind-merge": "^1.14.0",
