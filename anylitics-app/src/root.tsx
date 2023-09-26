@@ -15,11 +15,10 @@ import {
 import "./root.css";
 
 export default function Root() {
-  console.log("Server Side Component");
   return (
     <Html lang="en">
       <Head>
-        <Title>SolidStart - Bare</Title>
+        <Title>Anylytics</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
