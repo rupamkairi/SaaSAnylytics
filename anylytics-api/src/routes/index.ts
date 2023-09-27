@@ -1,5 +1,5 @@
 import { Elysia } from "elysia";
 
-const api = new Elysia().get("/api", () => "API");
+const routes = new Elysia().get("/api", () => "API");
 
-export default api;
+export default routes;

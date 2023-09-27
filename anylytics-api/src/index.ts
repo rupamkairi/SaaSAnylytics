@@ -1,18 +1,17 @@
 import { Elysia } from "elysia";
-import api from "./routes";
+import routes from "./routes";
+import websocket from "./websockets";
 
-const app = new Elysia().use(api).listen(process.env.API_PORT as string);
-
-const ws = new Elysia()
-  .ws("/", {
-    message(ws, message) {
-      ws.send(message);
-    },
-  })
-  .listen(process.env.WS_PORT as string);
+const api = new Elysia().use(routes).listen(process.env.API_PORT as string);
+const ws = new Elysia().use(websocket).listen(process.env.WS_PORT as string);
 
 console.log(
   `🦊 Elysia is running at 
-http://${app.server?.hostname}:${app.server?.port} 
+http://${api.server?.hostname}:${api.server?.port} 
 ws://${ws.server?.hostname}:${ws.server?.port}`
 );
+
+function MessageImpl(ws: any, message: any) {
+  console.log(message);
+  // ws.send(message);
+}
