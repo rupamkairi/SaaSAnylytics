@@ -1,5 +1,5 @@
 {
-  "name": "anylitics-app",
+  "name": "anylytics-app",
   "scripts": {
     "solid:dev": "solid-start dev --port 3005 --host",
     "dev": "bun run solid:dev",
