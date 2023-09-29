@@ -1,6 +1,8 @@
 import { default as connector } from "./connector";
 
-export default function sendPageClicks(event: MouseEvent) {
+export function pageLoad(event: Event) {}
+
+export function pageClick(event: MouseEvent) {
   if (!document || !window) return;
   const element = event.target as any;
 
@@ -36,3 +38,5 @@ export default function sendPageClicks(event: MouseEvent) {
 
   connector.ws.send(JSON.stringify(data));
 }
+
+export default { pageLoad, pageClick };

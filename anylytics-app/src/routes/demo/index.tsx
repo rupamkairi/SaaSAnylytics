@@ -1,12 +1,16 @@
 import { createEffect } from "solid-js";
-import sendPageClicks from "~/packages/anylytics/sender";
+import { register } from "~/packages/anylytics";
 
 export default function Demo() {
   createEffect(() => {
     if (true) {
-      document.addEventListener("click", (event) => {
-        sendPageClicks(event);
-      });
+      register();
+    }
+  }, []);
+
+  createEffect(() => {
+    if (window) {
+      window.history.replaceState({}, "", "/demo");
     }
   }, []);
 
