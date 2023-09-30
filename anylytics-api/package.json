@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@astrajs/rest": "^0.3.4",
+    "@elysiajs/cors": "^0.7.1",
     "cassandra-driver": "^4.7.2",
     "elysia": "^0.7.14"
   },

@@ -20,6 +20,7 @@
   "dependencies": {
     "@solidjs/meta": "^0.28.6",
     "@solidjs/router": "^0.8.3",
+    "@tanstack/solid-query": "^4.35.3",
     "clsx": "^2.0.0",
     "solid-js": "^1.7.11",
     "solid-start": "^0.3.5"

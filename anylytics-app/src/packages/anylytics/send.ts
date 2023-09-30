@@ -1,6 +1,16 @@
 import { default as connector } from "./connector";
 
-export function pageLoad(event: Event) {}
+export function pageLoad(event?: Event) {
+  if (!document || !window) return;
+
+  const data = {
+    type: "load",
+    location,
+    userAgent: navigator.userAgent,
+  };
+
+  connector.ws.send(JSON.stringify(data));
+}
 
 export function pageClick(event: MouseEvent) {
   if (!document || !window) return;
