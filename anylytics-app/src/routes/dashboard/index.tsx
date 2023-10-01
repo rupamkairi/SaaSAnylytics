@@ -1,5 +1,6 @@
 import { createQuery } from "@tanstack/solid-query";
 import { Match, Switch, createEffect } from "solid-js";
+import Table from "~/components/UI/Table";
 
 export default function Dashboard() {
   const query = createQuery(
@@ -24,6 +25,7 @@ export default function Dashboard() {
 
   createEffect(() => {
     if (query.data) {
+      // console.log(query.data);
       // const data = query.data;
       // .replaceAll("\\", "")
       // .split("\n")
@@ -38,10 +40,13 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
       <Switch>
         <Match when={query.isLoading}>Loading...</Match>
-        <Match when={query.isError}>Error: {}</Match>
+        <Match when={query.isError}>
+          <p>Error</p>: {}
+        </Match>
         <Match when={query.isSuccess}>
-          Success
-          <pre>{JSON.stringify(query.data!, null, 2)}</pre>
+          <p>Success</p>
+          {/* <pre>{JSON.stringify(query.data!, null, 2)}</pre> */}
+          <Table data={query.data!} />
         </Match>
       </Switch>
     </div>
