@@ -15,8 +15,7 @@ export async function writeLine(buffer: string) {
 
 export async function read() {
   try {
-    const data = await file.text();
-    return data;
+    return await file.text();
   } catch (error) {
     console.log(error);
   }

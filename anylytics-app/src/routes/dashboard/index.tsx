@@ -1,5 +1,6 @@
 import { createQuery } from "@tanstack/solid-query";
 import { Match, Switch, createEffect } from "solid-js";
+import { Title } from "solid-start";
 import Table from "~/components/UI/Table";
 
 export default function Dashboard() {
@@ -37,6 +38,7 @@ export default function Dashboard() {
 
   return (
     <div>
+      <Title>Dashboard | Anylytics</Title>
       <h1>Dashboard</h1>
       <Switch>
         <Match when={query.isLoading}>Loading...</Match>

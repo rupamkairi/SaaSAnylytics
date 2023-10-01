@@ -12,9 +12,21 @@ type TableProp = {
 
 const columns: ColumnDef<any>[] = [
   {
+    accessorKey: "timestamp",
+    accessorFn: (row) => row.timestamp,
+    header: "Time",
+    cell: (info) => info.getValue(),
+  },
+  {
     accessorKey: "type",
     accessorFn: (row) => row.type,
     header: "Type",
+    cell: (info) => info.getValue(),
+  },
+  {
+    accessorKey: "nonce",
+    accessorFn: (row) => row.nonce,
+    header: "Nonce",
     cell: (info) => info.getValue(),
   },
 ];
@@ -29,13 +41,13 @@ export default function Table({ data = [] }: TableProp) {
   return (
     <div class="container mx-auto font-mono">
       <table class="border">
-        <thead class="border flex px-4">
+        <thead class="border">
           <For each={table.getHeaderGroups()}>
             {(headerGroup) => (
-              <tr>
+              <tr class="border ">
                 <For each={headerGroup.headers}>
                   {(header) => (
-                    <th class="">
+                    <th class="border ">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -49,13 +61,13 @@ export default function Table({ data = [] }: TableProp) {
             )}
           </For>
         </thead>
-        <tbody class="border">
+        <tbody class="border text-sm">
           <For each={table.getRowModel().rows}>
             {(row) => (
-              <tr class="border flex">
+              <tr class="border ">
                 <For each={row.getVisibleCells()}>
                   {(cell) => (
-                    <td class="border flex">
+                    <td class="border px-2">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

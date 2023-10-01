@@ -1,9 +1,17 @@
-import { pageClick, pageLoad } from "./send";
+import { pageClick, pageLoad, pageState, pageUnload } from "./send";
 
 export default function register() {
+  pageLoad();
+
   document.addEventListener("click", (event) => {
     pageClick(event);
   });
 
-  pageLoad();
+  window.onbeforeunload = () => {
+    pageUnload();
+  };
+
+  document.addEventListener("visibilitychange", (event) => {
+    pageState();
+  });
 }

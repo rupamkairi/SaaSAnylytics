@@ -5,11 +5,37 @@ export function pageLoad(event?: Event) {
 
   const data = {
     type: "load",
+    timestamp: new Date().getTime(),
     location,
     userAgent: navigator.userAgent,
   };
 
-  connector.ws.send(JSON.stringify(data));
+  connector.send(data);
+}
+
+export function pageUnload(event?: Event) {
+  if (!document || !window) return;
+
+  const data = {
+    type: "unload",
+    location,
+    userAgent: navigator.userAgent,
+  };
+
+  connector.send(data);
+}
+
+export function pageState() {
+  if (!document || !window) return;
+
+  const data = {
+    type: "state",
+    state: document.visibilityState,
+    transient: navigator.userActivation.isActive,
+    sticky: navigator.userActivation.hasBeenActive,
+  };
+
+  connector.send(data);
 }
 
 export function pageClick(event: MouseEvent) {
@@ -46,7 +72,7 @@ export function pageClick(event: MouseEvent) {
     },
   };
 
-  connector.ws.send(JSON.stringify(data));
+  connector.send(data);
 }
 
 export default { pageLoad, pageClick };
