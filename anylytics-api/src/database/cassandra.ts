@@ -39,7 +39,7 @@ export async function astraTest() {
   }
 }
 
-async function astraFetch() {
+export async function astraFetch() {
   try {
     // const data = {
     //   token_id: Math.random() * 100000000,

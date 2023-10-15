@@ -1,8 +1,8 @@
 {
   "name": "anylytics-app",
   "scripts": {
-    "solid:dev": "solid-start dev --port 3005 --host",
-    "dev": "bun run solid:dev",
+    "solid-start:dev": "solid-start dev --port 3005 --host",
+    "dev": "bun run solid-start:dev",
     "build": "solid-start build",
     "start": "solid-start start"
   },

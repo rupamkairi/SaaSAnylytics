@@ -10,8 +10,3 @@ console.log(
 http://${api.server?.hostname}:${api.server?.port} 
 ws://${ws.server?.hostname}:${ws.server?.port}`
 );
-
-function MessageImpl(ws: any, message: any) {
-  console.log(message);
-  // ws.send(message);
-}

@@ -25,7 +25,7 @@ export function pageUnload(event?: Event) {
   connector.send(data);
 }
 
-export function pageState() {
+export function pageState(event?: Event) {
   if (!document || !window) return;
 
   const data = {
