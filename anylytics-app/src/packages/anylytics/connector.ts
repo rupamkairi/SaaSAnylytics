@@ -18,6 +18,8 @@ export default class AnylyticsConnector {
   }
 
   static send(data: any) {
+    if (!AnylyticsConnector.ws.readyState) return;
+
     data = {
       nonce: _nonce,
       timestamp: new Date().getTime(),

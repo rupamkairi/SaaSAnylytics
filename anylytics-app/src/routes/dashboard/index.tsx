@@ -7,7 +7,7 @@ export default function Dashboard() {
   const query = createQuery(
     () => ["/data"],
     () =>
-      fetch("http://localhost:3003/api/data")
+      fetch(import.meta.env.VITE_API_URL + "/api/data")
         .then((res) => res.text())
         .then((data) => {
           return data

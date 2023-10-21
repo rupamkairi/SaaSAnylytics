@@ -1,7 +1,7 @@
 import { default as connector } from "./connector";
 
 export function pageLoad(event?: Event) {
-  if (!document || !window) return;
+  if (!document || !window || !connector) return;
 
   const data = {
     type: "load",
@@ -10,11 +10,11 @@ export function pageLoad(event?: Event) {
     userAgent: navigator.userAgent,
   };
 
-  connector.send(data);
+  connector?.send(data);
 }
 
 export function pageUnload(event?: Event) {
-  if (!document || !window) return;
+  if (!document || !window || !connector) return;
 
   const data = {
     type: "unload",
@@ -22,11 +22,11 @@ export function pageUnload(event?: Event) {
     userAgent: navigator.userAgent,
   };
 
-  connector.send(data);
+  connector?.send(data);
 }
 
 export function pageState(event?: Event) {
-  if (!document || !window) return;
+  if (!document || !window || !connector) return;
 
   const data = {
     type: "state",
@@ -35,11 +35,11 @@ export function pageState(event?: Event) {
     sticky: navigator.userActivation.hasBeenActive,
   };
 
-  connector.send(data);
+  connector?.send(data);
 }
 
 export function pageClick(event: MouseEvent) {
-  if (!document || !window) return;
+  if (!document || !window || !connector) return;
   const element = event.target as any;
 
   const data = {
@@ -72,7 +72,7 @@ export function pageClick(event: MouseEvent) {
     },
   };
 
-  connector.send(data);
+  connector?.send(data);
 }
 
 export default { pageLoad, pageClick };
