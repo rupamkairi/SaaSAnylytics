@@ -4,6 +4,11 @@ import { Title } from "solid-start";
 import Table from "~/components/UI/Table";
 
 export default function Dashboard() {
+  console.log("Dashboard", {
+    api: import.meta.env.VITE_API_URL,
+    ws: import.meta.env.VITE_WS_URL,
+  });
+
   const query = createQuery(
     () => ["/data"],
     () =>
