@@ -1,15 +1,7 @@
 # Elysia with Bun runtime
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
 ```
+docker build -t anylytics/bun .
 
-## Development
-To start the development server run:
-```bash
-bun run dev
+docker run --name anylytics-api -p 3003:3003 -p 3004:3004 -d anylytics/bun
 ```
-
-Open http://localhost:3000/ with your browser to see the result.
