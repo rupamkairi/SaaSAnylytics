@@ -24,4 +24,3 @@ docker push rupamkairi/anylytics:latest
 docker run --name anylytics -p 3002:3002 -d rupamkairi/anylytics-api:latest
 ```
 
-dckr_pat_tcxsKyIXAAnOM6uTO3Pz1CnHEhM
