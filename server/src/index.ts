@@ -6,17 +6,14 @@ let app: Elysia | null = null,
   api: Elysia | null = null,
   ws: Elysia | null = null;
 
-if (process.env.PORT) {
-  app = new Elysia().use(routes).use(websocket).listen(process.env.PORT);
-}
+if (process.env.APP_PORT)
+  app = new Elysia().use(routes).use(websocket).listen(process.env.APP_PORT!);
 
-if (process.env.API_PORT) {
-  api = new Elysia().use(routes).listen(process.env.API_PORT as string);
-}
+if (process.env.API_PORT)
+  api = new Elysia().use(routes).listen(process.env.API_PORT!);
 
-if (process.env.WS_PORT) {
-  ws = new Elysia().use(websocket).listen(process.env.WS_PORT as string);
-}
+if (process.env.WS_PORT)
+  ws = new Elysia().use(websocket).listen(process.env.WS_PORT!);
 
 // console.log(!!app, !!api, !!ws);
 console.log(
