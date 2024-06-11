@@ -1,14 +1,9 @@
 import Elysia from "elysia";
-import openHandlerImpl from "./open";
-import messageHandlerImpl from "./message";
-import closeHandlerImpl from "./close";
-import errorHandlerImpl from "./error";
+import messageHandlerImpl from "./message-handler";
 
-const websocket = new Elysia().ws("", {
-  open: openHandlerImpl,
-  close: closeHandlerImpl,
+export const websockets = new Elysia().ws("/ws", {
+  open: (ws) => {
+    console.log("socket_id", ws.id);
+  },
   message: messageHandlerImpl,
-  error: errorHandlerImpl,
 });
-
-export default websocket;
