@@ -3,16 +3,26 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch src/index.ts"
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "test": "bun test",
+    "db:generate": "prisma generate"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prisma": "^5.15.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "@clickhouse/client": "^1.1.0",
-    "@clickhouse/client-web": "^1.1.0"
+    "@clickhouse/client-web": "^1.1.0",
+    "@elysiajs/cors": "^1.0.2",
+    "@elysiajs/websocket": "^0.2.8",
+    "@prisma/client": "^5.15.0",
+    "elysia": "^1.0.23",
+    "mongodb": "^6.7.0"
   }
 }

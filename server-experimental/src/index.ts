@@ -1,24 +1,11 @@
-import { client } from "./clickhouse/client";
+import { Elysia } from "elysia";
+import { port } from "./config";
+import { routes } from "./routes";
+import { websockets } from "./websockets";
+import cors from "@elysiajs/cors";
 
-const main = async () => {
-  const row = await client.query({
-    query: `SELECT * FROM default.hits`,
-  });
+const app = new Elysia().use(cors()).use(routes).use(websockets);
 
-  const jsonRow = await row.json();
-
-  console.log(jsonRow.data);
-
-  // await client.insert({
-  //   table: "hits",
-  //   values: [
-  //     { hit_id: 1, hit_at: Date.now() },
-  //     { hit_id: 2, hit_at: Date.now() },
-  //   ],
-  //   format: "JSONEachRow",
-  // });
-
-  // await client.close();
-};
-
-main();
+app.listen(port, () => {
+  console.log(`Server is running on http+ws://localhost:${port}`);
+});

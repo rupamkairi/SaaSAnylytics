@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+model anylytics {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model session {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  connection_id   String
+  timestamp       DateTime
+  nonce           String?
+  start_timestamp DateTime
+  end_timestamp   DateTime
+
+  visits visit[]
+  events event[]
+}
+
+model visit {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  timestamp       DateTime
+  nonce           String?
+  referrer        String?
+  device          String?
+  browser         String?
+  browser_version String?
+  os              String?
+  os_version      String?
+  country         String?
+  region          String?
+  city            String?
+  ip_address      String?
+
+  session   session @relation(fields: [sessionId], references: [id])
+  sessionId String  @db.ObjectId
+
+  events event[]
+}
+
+enum event_type {
+  CLICK
+  SCROLL
+}
+
+model event {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  timestamp DateTime
+  nonce     String?
+  xpath     String?
+  selector  String?
+  text      String?
+  tag       String?
+  type      event_type
+
+  session   session @relation(fields: [sessionId], references: [id])
+  sessionId String  @db.ObjectId
+  visit     visit   @relation(fields: [visitId], references: [id])
+  visitId   String  @db.ObjectId
+}
