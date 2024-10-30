@@ -11,18 +11,19 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "prisma": "^5.15.0"
+    "prisma": "^5.21.1"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@clickhouse/client": "^1.1.0",
-    "@clickhouse/client-web": "^1.1.0",
-    "@elysiajs/cors": "^1.0.2",
+    "@clickhouse/client": "^1.7.0",
+    "@clickhouse/client-web": "^1.7.0",
+    "@elysiajs/cors": "^1.1.1",
     "@elysiajs/websocket": "^0.2.8",
-    "@prisma/client": "^5.15.0",
-    "elysia": "^1.0.23",
-    "mongodb": "^6.7.0"
+    "@prisma/client": "^5.21.1",
+    "elysia": "^1.1.23",
+    "hono": "^4.6.8",
+    "mongodb": "^6.10.0"
   }
 }
