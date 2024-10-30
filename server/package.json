@@ -3,9 +3,9 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch src/index.ts",
-    "build": "bun build src/index.ts",
-    "start": "NODE_ENV=production bun src/index.ts",
+    "dev": "bun run --watch .",
+    "build": "bun build .",
+    "start": "NODE_ENV=production bun run .",
     "test": "bun test",
     "db:generate": "prisma generate"
   },
@@ -17,12 +17,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@clickhouse/client": "^1.7.0",
-    "@clickhouse/client-web": "^1.7.0",
-    "@elysiajs/cors": "^1.1.1",
-    "@elysiajs/websocket": "^0.2.8",
     "@prisma/client": "^5.21.1",
-    "elysia": "^1.1.23",
     "hono": "^4.6.8",
     "mongodb": "^6.10.0"
   }

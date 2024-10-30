@@ -1,7 +1,11 @@
-export default function Index() {
+import { Title } from "@solidjs/meta";
+import Counter from "~/components/Counter";
+
+export default function Home() {
   return (
-    <div>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <main>
+      <Title>Home</Title>
+      <Counter />
+    </main>
   );
 }
