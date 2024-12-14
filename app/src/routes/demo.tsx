@@ -1,4 +1,7 @@
 import { Title } from "@solidjs/meta";
+import { AnylyticsConnector } from "~/packages/anylytics";
+
+new AnylyticsConnector();
 
 export default function Demo() {
   return (

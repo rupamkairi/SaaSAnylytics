@@ -1,4 +1,4 @@
-import { WS_SERVER_URL } from "~/config";
+const WS_SERVER_URL = "ws://localhost:30005/ws";
 
 let instance: AnylyticsConnector | null;
 let _nonce = crypto.randomUUID();
